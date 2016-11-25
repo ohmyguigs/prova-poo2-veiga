@@ -4,6 +4,6 @@
 
 # Arquivos que o Blue J cria sozinho
 
-.class
-.ctxt
-.bluej
+*.class
+*.ctxt
+*.bluej
