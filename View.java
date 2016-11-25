@@ -13,6 +13,18 @@ public class View extends JFrame{
         FlowLayout layout = new FlowLayout(FlowLayout.LEFT); // Ajusta a exibição dos componentes
         tela.setLayout(layout);
 
+        // Cria uma barra de menu para o JFrame
+        JMenuBar menuBar = new JMenuBar();
+        // Adiciona a barra de menu ao  frame
+        setJMenuBar(menuBar);
+        // Define e adiciona dois menus drop down na barra de menus
+        JMenu consultMenu = new JMenu("Consultar");
+        JMenu addMenu = new JMenu("Adicionar");
+        JMenu editMenu = new JMenu("Editar");
+        menuBar.add(consultMenu);
+        menuBar.add(addMenu);
+        menuBar.add(editMenu);
+
         JLabel rotuloNome = new JLabel("Nome:");  // Criação de um Label
         textoNome = new JTextField(10);  // Criação de uma caixa de texto com tamanho 10
         JLabel rotuloBairros = new JLabel("Quantidade Bairros:");
