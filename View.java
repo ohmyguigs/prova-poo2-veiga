@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.GregorianCalendar;
+
 public class View extends JFrame{
   JTextField textoNome;  // variável texto declarada como variável de instância
   JTextField textoBairros;
@@ -19,8 +21,8 @@ public class View extends JFrame{
         textoNiver = new JTextField(10);
 
         JButton btn = new JButton("Salvar!");   // Criação de um botão
-        TratEventos trat = new TratEventos();   // Criação do objeto ouvinte
-        btn.addActionListener(trat);   // Ligação do objeto origem (botão) ao objeto ouvinte trat
+        Controller controller = new Controller();   // Criação do objeto ouvinte
+        btn.addActionListener(controller);   // Ligação do objeto origem (botão) ao objeto ouvinte trat
 
         tela.add(rotuloNome);
         tela.add(textoNome); // Adicionando componentes ao Container tela
@@ -40,14 +42,17 @@ public class View extends JFrame{
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private class TratEventos implements ActionListener{   // Classe ouvinte definida como Interna para facilitar
+    private class Controller implements ActionListener{   // Classe ouvinte definida como Interna para facilitar
         public void actionPerformed(ActionEvent evento){     // Método que trata o evento
           String txt = "Você digitou: " + textoNome.getText();  // Acessando a variável texto da classe externa
           JOptionPane.showMessageDialog(null, txt);  // Caixa de diálogo tipo mensagem
         }
     }
-    
-    public class Cidade {
-        
+
+    public class Model {
+      private String nome;
+      private int idade;
+      private GregorianCalendar niver;
+
     }
 }
