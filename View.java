@@ -1,13 +1,11 @@
-
-// Um Exemplo de tratamento de eventos
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Eventos extends JFrame{
+public class View extends JFrame{
   JTextField textoNome;  // variável texto declarada como variável de instância
   JTextField textoBairros;
   JTextField textoNiver;
-    public Eventos(){
+    public View(){
         super("Cidades do meu Brasil!");
         Container tela = getContentPane();
         FlowLayout layout = new FlowLayout(FlowLayout.LEFT); // Ajusta a exibição dos componentes
@@ -38,7 +36,7 @@ public class Eventos extends JFrame{
     }
 
     public static void main(String args[]) {
-        Eventos app = new Eventos();
+        View app = new View();
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -47,5 +45,9 @@ public class Eventos extends JFrame{
           String txt = "Você digitou: " + textoNome.getText();  // Acessando a variável texto da classe externa
           JOptionPane.showMessageDialog(null, txt);  // Caixa de diálogo tipo mensagem
         }
+    }
+    
+    public class Cidade {
+        
     }
 }

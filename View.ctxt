@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=
-comment0.target=Eventos()
+comment0.target=View()
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 numComments=2
