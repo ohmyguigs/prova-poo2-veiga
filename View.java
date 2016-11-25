@@ -46,6 +46,7 @@ public class View extends JFrame{
         public void actionPerformed(ActionEvent evento){     // Método que trata o evento
           String txt = "Você digitou: " + textoNome.getText();  // Acessando a variável texto da classe externa
           JOptionPane.showMessageDialog(null, txt);  // Caixa de diálogo tipo mensagem
+          //GRAVAR TEXTO NO ARQUIVO AQUI AO INVES DE MOSTRAR ESSE OPTIONPANE
         }
     }
 

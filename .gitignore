@@ -1,2 +1,7 @@
 # Arquivos que a porra do mac cria sozinho
+
 .DS_Store
+
+# Arquivos que o Blue J cria sozinho
+
+.class
