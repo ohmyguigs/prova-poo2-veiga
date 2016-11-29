@@ -4,8 +4,9 @@ import java.awt.event.*;
 
 public class View extends JFrame{
   JTextField textoNome;  // variável texto declarada como variável de instância
-  JTextField textoBairros;
+  JTextField textoIdade;
   JTextField textoNiver;
+  JTextField textoTemp;
     public View(){
         super("Cidades do meu Brasil!");
         Container tela = getContentPane();
@@ -39,20 +40,24 @@ public class View extends JFrame{
 
         JLabel rotuloNome = new JLabel("Nome:");  // Criação de um Label
         textoNome = new JTextField(10);  // Criação de uma caixa de texto com tamanho 10
-        JLabel rotuloBairros = new JLabel("Quantidade Bairros:");
-        textoBairros = new JTextField(10);
+        JLabel rotuloIdade = new JLabel("Idade:");
+        textoIdade = new JTextField(10);
         JLabel rotuloNiver = new JLabel("Aniversário:");
         textoNiver = new JTextField(10);
+        JLabel rotuloTemp = new JLabel("Temperatua Media:");
+        textoTemp = new JTextField(10);
 
         tela.add(rotuloNome);
         tela.add(textoNome); // Adicionando componentes ao Container tela
-        tela.add(rotuloBairros);
-        tela.add(textoBairros);
+        tela.add(rotuloIdade);
+        tela.add(textoIdade);
         tela.add(rotuloNiver);
         tela.add(textoNiver);
+        tela.add(rotuloTemp);
+        tela.add(textoTemp);
 
         JButton btn = new JButton("Salvar!");   // Criação de um botão
-        btn.addActionListener(controller.salvar());   // Ligação do objeto origem (botão) ao objeto ouvinte trat
+        btn.addActionListener(controller.salvar(null));   // Ligação do objeto origem (botão) ao objeto ouvinte trat
         tela.add(btn);
 
         setSize(500, 600);
