@@ -31,16 +31,16 @@ public class View extends JFrame{
         menu.add(consultItem);
         menu.add(sortItem);
 
+        Controller controller = new Controller();   // Criação do objeto ouvinte
+
+        addItem.addActionListener(controller.menuItemIncluir());
+
         JLabel rotuloNome = new JLabel("Nome:");  // Criação de um Label
         textoNome = new JTextField(10);  // Criação de uma caixa de texto com tamanho 10
         JLabel rotuloBairros = new JLabel("Quantidade Bairros:");
         textoBairros = new JTextField(10);
         JLabel rotuloNiver = new JLabel("Aniversário:");
         textoNiver = new JTextField(10);
-
-        JButton btn = new JButton("Salvar!");   // Criação de um botão
-        Controller controller = new Controller();   // Criação do objeto ouvinte
-        btn.addActionListener(controller);   // Ligação do objeto origem (botão) ao objeto ouvinte trat
 
         tela.add(rotuloNome);
         tela.add(textoNome); // Adicionando componentes ao Container tela
@@ -49,6 +49,8 @@ public class View extends JFrame{
         tela.add(rotuloNiver);
         tela.add(textoNiver);
 
+        JButton btn = new JButton("Salvar!");   // Criação de um botão
+        btn.addActionListener(controller.salvar());   // Ligação do objeto origem (botão) ao objeto ouvinte trat
         tela.add(btn);
 
         setSize(500, 600);
@@ -60,18 +62,38 @@ public class View extends JFrame{
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private class Controller implements ActionListener{   // Classe ouvinte definida como Interna para facilitar
-        public void actionPerformed(ActionEvent evento){     // Método que trata o evento
-          String txt = "Você digitou: " + textoNome.getText();  // Acessando a variável texto da classe externa
-          JOptionPane.showMessageDialog(null, txt);  // Caixa de diálogo tipo mensagem
-          //GRAVAR TEXTO NO ARQUIVO AQUI AO INVES DE MOSTRAR ESSE OPTIONPANE
-        }
+    private class Controller {   // Classe ouvinte definida como Interna para facilitar
+      Model m;
+      public ActionListener menuItemIncluir() {
+        return new ActionListener() {
+          @Override public void actionPerformed (ActionEvent e) {
+            m.incluiObjeto();
+          }
+        };
+      }
+
+      public ActionListener salvar() {
+        return new ActionListener() {
+          @Override public void actionPerformed (ActionEvent e) {
+            // try {
+            //   //logica para escrever no arquivo
+            // }
+            // catch() {//colocar alguma exception de escrever em arquivo nesse catch
+            //   JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo");
+            // }
+          }
+        };
+      }
     }
 
     public class Model {
       private String nome;
       private int idade;
       private GregorianCalendar niver;
+
+      public void incluiObjeto(){
+        JOptionPane.showMessageDialog(null, "clicou no incluir");
+      }
 
     }
 }
