@@ -5,9 +5,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.ObjectOutputStream;
-import java.io.ObjectIntputStream;
+import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.lang.ClassNotFoundException;
 
 public class Controller {   // Classe ouvinte definida como Interna para facilitar
   Model model = new Model();
@@ -40,11 +41,19 @@ public class Controller {   // Classe ouvinte definida como Interna para facilit
   public ActionListener menuItemPesquisar() {
     return new ActionListener() {
       @Override public void actionPerformed (ActionEvent e) {
-        if(file.exists()){
-          ObjectInputStream ois = new ObjectInputStream(new FileInputStream("arquivoCidades.dat"));
-          JOptionPane.showMessageDialog(null, "tienes: " + ois.readObject());
-        } else {
+        try{
+          if(file.exists()){
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("arquivoCidades.dat"));
+            JOptionPane.showMessageDialog(null, "tienes: " + ois.readObject());
+          } else {
+            JOptionPane.showMessageDialog(null, "Não há nenhum arquivo em disco");
+          }
+        } catch(FileNotFoundException ex) {
           JOptionPane.showMessageDialog(null, "Não há arquivo em disco");
+        } catch(IOException ex) {
+          JOptionPane.showMessageDialog(null, "Erro ao ler arquivo em disco");
+        } catch(ClassNotFoundException ex) {
+          JOptionPane.showMessageDialog(null, "Erro ao carregar classe do objeto");
         }
       }
     };
