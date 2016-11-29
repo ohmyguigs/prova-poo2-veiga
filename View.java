@@ -18,12 +18,18 @@ public class View extends JFrame{
         // Adiciona a barra de menu ao  frame
         setJMenuBar(menuBar);
         // Define e adiciona dois menus drop down na barra de menus
-        JMenu consultMenu = new JMenu("Consultar");
-        JMenu addMenu = new JMenu("Adicionar");
-        JMenu editMenu = new JMenu("Editar");
-        menuBar.add(consultMenu);
-        menuBar.add(addMenu);
-        menuBar.add(editMenu);
+        JMenu menu = new JMenu("Menu");
+        menuBar.add(menu);
+        JMenuItem addItem = new JMenuItem("Incluir");
+        JMenuItem editItem = new JMenuItem("Alterar");
+        JMenuItem deleteItem = new JMenuItem("Excluir");
+        JMenuItem consultItem = new JMenuItem("Pesquisar");
+        JMenuItem sortItem = new JMenuItem("Ordenar");
+        menu.add(addItem);
+        menu.add(editItem);
+        menu.add(deleteItem);
+        menu.add(consultItem);
+        menu.add(sortItem);
 
         JLabel rotuloNome = new JLabel("Nome:");  // Criação de um Label
         textoNome = new JTextField(10);  // Criação de uma caixa de texto com tamanho 10
