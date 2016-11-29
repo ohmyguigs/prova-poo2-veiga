@@ -10,6 +10,38 @@ public class Controller {   // Classe ouvinte definida como Interna para facilit
     };
   }
 
+  public ActionListener menuItemAlterar() {
+    return new ActionListener() {
+      @Override public void actionPerformed (ActionEvent e) {
+        model.incluiObjeto();
+      }
+    };
+  }
+
+  public ActionListener menuItemExcluir() {
+    return new ActionListener() {
+      @Override public void actionPerformed (ActionEvent e) {
+        model.incluiObjeto();
+      }
+    };
+  }
+
+  public ActionListener menuItemPesquisar() {
+    return new ActionListener() {
+      @Override public void actionPerformed (ActionEvent e) {
+        model.incluiObjeto();
+      }
+    };
+  }
+
+  public ActionListener menuItemOrdenar() {
+    return new ActionListener() {
+      @Override public void actionPerformed (ActionEvent e) {
+        model.incluiObjeto();
+      }
+    };
+  }
+
   public ActionListener salvar() {
     return new ActionListener() {
       @Override public void actionPerformed (ActionEvent e) {

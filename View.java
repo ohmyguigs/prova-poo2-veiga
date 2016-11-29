@@ -31,8 +31,11 @@ public class View extends JFrame{
         menu.add(sortItem);
 
         Controller controller = new Controller();   // Criação do objeto ouvinte
-
-        addItem.addActionListener(controller.menuItemIncluir());
+        addItem.addActionListener(controller.menuItemIncluir()); // adiciona listeners
+        editItem.addActionListener(controller.menuItemAlterar());
+        deleteItem.addActionListener(controller.menuItemExcluir());
+        consultItem.addActionListener(controller.menuItemPesquisar());
+        sortItem.addActionListener(controller.menuItemOrdenar());
 
         JLabel rotuloNome = new JLabel("Nome:");  // Criação de um Label
         textoNome = new JTextField(10);  // Criação de uma caixa de texto com tamanho 10
