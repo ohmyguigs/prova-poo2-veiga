@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.GregorianCalendar;
 
 public class View extends JFrame{
   JTextField textoNome;  // variável texto declarada como variável de instância
@@ -55,45 +54,5 @@ public class View extends JFrame{
 
         setSize(500, 600);
         setVisible(true);
-    }
-
-    public static void main(String args[]) {
-        View app = new View();
-        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    private class Controller {   // Classe ouvinte definida como Interna para facilitar
-      Model m;
-      public ActionListener menuItemIncluir() {
-        return new ActionListener() {
-          @Override public void actionPerformed (ActionEvent e) {
-            m.incluiObjeto();
-          }
-        };
-      }
-
-      public ActionListener salvar() {
-        return new ActionListener() {
-          @Override public void actionPerformed (ActionEvent e) {
-            // try {
-            //   //logica para escrever no arquivo
-            // }
-            // catch() {//colocar alguma exception de escrever em arquivo nesse catch
-            //   JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo");
-            // }
-          }
-        };
-      }
-    }
-
-    public class Model {
-      private String nome;
-      private int idade;
-      private GregorianCalendar niver;
-
-      public void incluiObjeto(){
-        JOptionPane.showMessageDialog(null, "clicou no incluir");
-      }
-
     }
 }
